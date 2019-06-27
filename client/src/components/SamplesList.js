@@ -4,10 +4,6 @@ import { Button, Container, ListGroup, ListGroupItem, Row } from "reactstrap";
 import { addSample, deleteSample, getSamples } from "../actions/sampleActions";
 
 class SamplesList extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.getSamples();
   }
@@ -15,17 +11,11 @@ class SamplesList extends Component {
   addSampleData = () => {
     const name = prompt("Enter Sample Name:");
     if (name) {
-      // this.setState(state => ({
-      //   samples: [...state.samples, { id: uuid(), name: name }]
-      // }));
-      this.props.addSample(name);
+      this.props.addSample({ name: name });
     }
   };
 
   deleteSampleData = id => {
-    // this.setState(state => ({
-    //   samples: state.samples.filter(sample => sample.id !== id)
-    // }));
     this.props.deleteSample(id);
   };
 
@@ -40,18 +30,18 @@ class SamplesList extends Component {
           </Button>
         </Row>
 
-        <Row className="col-sm">
+        <Row className="col-md">
           <ListGroup>
-            {samples.map(({ id, name }) => (
-              <ListGroupItem key={id}>
+            {samples.map(({ _id, name }) => (
+              <ListGroupItem key={_id}>
+                {name}&nbsp;
                 <Button
                   color="danger"
                   size="sm"
-                  onClick={() => this.deleteSampleData(id)}
+                  onClick={() => this.deleteSampleData(_id)}
                 >
-                  X&nbsp;
+                  &times;
                 </Button>
-                {name}
               </ListGroupItem>
             ))}
           </ListGroup>
