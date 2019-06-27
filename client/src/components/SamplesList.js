@@ -1,43 +1,41 @@
-import faker from "faker";
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Button, Container, ListGroup, ListGroupItem, Row } from "reactstrap";
-import uuid from "uuid";
+import { addSample, deleteSample, getSamples } from "../actions/sampleActions";
 
 class SamplesList extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      samples: [
-        { id: uuid(), name: faker.name.firstName() },
-        { id: uuid(), name: faker.name.firstName() },
-        { id: uuid(), name: faker.name.firstName() }
-      ]
-    };
   }
 
-  addSample = () => {
+  componentDidMount() {
+    this.props.getSamples();
+  }
+
+  addSampleData = () => {
     const name = prompt("Enter Sample Name:");
     if (name) {
-      this.setState(state => ({
-        samples: [...state.samples, { id: uuid(), name: name }]
-      }));
+      // this.setState(state => ({
+      //   samples: [...state.samples, { id: uuid(), name: name }]
+      // }));
+      this.props.addSample(name);
     }
   };
 
-  deleteSample = id => {
-    this.setState(state => ({
-      samples: state.samples.filter(sample => sample.id !== id)
-    }));
+  deleteSampleData = id => {
+    // this.setState(state => ({
+    //   samples: state.samples.filter(sample => sample.id !== id)
+    // }));
+    this.props.deleteSample(id);
   };
 
   render() {
-    const { samples } = this.state;
+    const { samples } = this.props.sample;
 
     return (
       <Container>
         <Row className="col-md">
-          <Button color="dark" onClick={this.addSample}>
+          <Button color="dark" onClick={this.addSampleData}>
             Add Sample
           </Button>
         </Row>
@@ -49,7 +47,7 @@ class SamplesList extends Component {
                 <Button
                   color="danger"
                   size="sm"
-                  onClick={() => this.deleteSample(id)}
+                  onClick={() => this.deleteSampleData(id)}
                 >
                   X&nbsp;
                 </Button>
@@ -63,4 +61,8 @@ class SamplesList extends Component {
   }
 }
 
-export default SamplesList;
+const mapStateToProps = state => ({ sample: state.sample });
+export default connect(
+  mapStateToProps,
+  { getSamples, deleteSample, addSample }
+)(SamplesList);
