@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import {
-  Button,
   Collapse,
   Container,
   Nav,
@@ -51,9 +50,6 @@ class AppNavBar extends Component {
                   <NavLink href="https://github.com/insureasier/app">
                     Github
                   </NavLink>
-                </NavItem>
-                <NavItem>
-                  <Button color="primary">Add Sample</Button>{" "}
                 </NavItem>
               </Nav>
             </Collapse>
