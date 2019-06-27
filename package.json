@@ -18,6 +18,7 @@
     "server": "nodemon server",
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dep": "npm install && npm run client-install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
