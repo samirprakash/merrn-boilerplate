@@ -1,5 +1,5 @@
 {
-  "name": "insureasier",
+  "name": "merrn-boilerplate",
   "version": "0.1.0",
   "description": "Client and Server Application for InsurEasier",
   "main": "server.js",
@@ -22,7 +22,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "author": "InsurEasier Development Team",
-  "license": "UNLICENSED",
-  "repository": "https://github.com/insueasier/app"
+  "author": "Samir Prakash",
+  "license": "MIT",
+  "repository": "https://github.com/samirprakash/merrn-boilerplate"
 }

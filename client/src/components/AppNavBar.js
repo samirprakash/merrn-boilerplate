@@ -30,7 +30,7 @@ class AppNavBar extends Component {
       <div>
         <Navbar color="dark" dark expand="sm" className="mb-5">
           <Container>
-            <NavbarBrand href="/">InsurEasier</NavbarBrand>
+            <NavbarBrand href="/">MERRN Boilerplate</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
             <Collapse isOpen={this.state.isOpen} navbar>
               <Nav className="ml-auto" navbar>
@@ -47,7 +47,7 @@ class AppNavBar extends Component {
                   <NavLink href="/">Register</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="https://github.com/insureasier/app">
+                  <NavLink href="https://github.com/samirprakash/merrn-boilerplate">
                     Github
                   </NavLink>
                 </NavItem>
