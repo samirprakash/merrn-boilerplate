@@ -8,5 +8,5 @@ Heroku Deployment:
 
 - Install Heroku CLI
 - Execute `heroku login`
-- Setup remote link with heroku
+- Setup remote link with heroku using `heroku git:remote -a ie-dev`
 - Execute `git push heroku develop:master`
